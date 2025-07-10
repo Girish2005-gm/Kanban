@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export default function CallToAction() {
   const navigate = useNavigate();
@@ -13,23 +15,21 @@ export default function CallToAction() {
           <span className="font-semibold text-white">KanbanFlow</span>.
         </p>
 
-        <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition inline-flex items-center"
-          onClick={() => navigate("/login")}
+        <Link
+          to="/signup"
+          className="group cta-glow-wrapper bg-purple-700 hover:bg-purple-600 px-6 py-2 rounded-md text-white text-lg font-semibold relative z-10 inline-flex items-center"
         >
-          Start Your Free Trial
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="ml-2 h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </button>
+          <span className="relative z-10 flex items-center justify-center">
+            Start Your Free Trial
+            <ArrowRight
+              className="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </span>
+        </Link>
 
-        <p className="text-green-400 font-medium text-center mt-6 flex items-center justify-center gap-2">
-          <span className="text-xl">✅</span> No need to pay any kind of money 😉
+        <p className="text-green-400 font-medium text-center mt-6 flex flex-wrap items-center justify-center gap-2 text-sm sm:text-base px-4">
+          <span className="text-lg sm:text-xl">✅</span>
+          No need to pay any kind of money 😉
         </p>
 
       </div>

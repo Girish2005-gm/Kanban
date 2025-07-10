@@ -213,20 +213,23 @@ export default function Dashboard() {
       />
 
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="flex flex-wrap gap-6 overflow-x-auto">
+        <div className="flex flex-wrap gap-6">
+
           {Object.entries(lists).map(([listId, list]) => (
-            <ListColumn
-              key={listId}
-              listId={listId}
-              list={list}
-              onAddCard={handleAddCard}
-              onDeleteList={handleDeleteList}
-              onCardClick={handleCardClick}
-              onDeleteCard={handleDeleteCard}
-              searchQuery={searchQuery}
-              tagFilter={tagFilter}
-            />
+            <div key={listId} className="w-full sm:w-[48%] lg:w-[32%]">
+              <ListColumn
+                listId={listId}
+                list={list}
+                onAddCard={handleAddCard}
+                onDeleteList={handleDeleteList}
+                onCardClick={handleCardClick}
+                onDeleteCard={handleDeleteCard}
+                searchQuery={searchQuery}
+                tagFilter={tagFilter}
+              />
+            </div>
           ))}
+
         </div>
       </DragDropContext>
 

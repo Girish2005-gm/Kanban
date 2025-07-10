@@ -11,7 +11,7 @@ const features = [
     iconBg: "bg-purple-200",
     title: "Visual Task Management",
     description:
-      "Organize your workflow with drag-and-drop cards, custom lists, and easy task editing.",
+      "Organize your workflow with drag-and-drop cards and easy task editing.",
     bullets: ["Drag & drop cards", "Tags & due dates", "Custom lists"],
   },
   {

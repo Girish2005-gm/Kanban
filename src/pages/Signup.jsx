@@ -3,10 +3,12 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react"; 
+import Logo from "../utils/Logo";
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -32,8 +34,12 @@ export default function Signup() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1e0032] to-[#3f0080] relative">
-    <Link to="/" className="absolute top-4 left-4 text-white hover:underline text-lg flex items-center gap-1">
-        <ArrowLeft className="w-6 h-6" />
+      <Link
+        to="/"
+        className="absolute top-4 left-4 text-white  text-lg flex items-center gap-1 group"
+      >
+        {/* Animate arrow left on hover */}
+        <ArrowLeft className="w-6 h-6 transform transition-transform duration-300 group-hover:-translate-x-1" />
         Back to Home
       </Link>
 
@@ -42,8 +48,11 @@ export default function Signup() {
         className="bg-[#2a004d] p-8 rounded-xl shadow-xl w-full max-w-md text-white"
       >
         <div className="text-center mb-6">
+          <div className="flex justify-center py-6"><Logo /></div>
           <div className="text-4xl font-bold mb-1">Create Account</div>
-          <p className="text-sm text-gray-300">Sign up to start using KanbanFlow</p>
+          <p className="text-sm text-gray-300">
+            Sign up to start using KanbanFlow
+          </p>
         </div>
 
         <label className="block mb-2 text-sm font-semibold">Email</label>
@@ -57,14 +66,23 @@ export default function Signup() {
         />
 
         <label className="block mb-2 text-sm font-semibold">Password</label>
-        <input
-          required
-          type="password"
-          className="w-full p-2 rounded bg-gray-900 border border-gray-700 mb-4 text-white"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="relative">
+          <input
+            required
+            type={showPassword ? "text" : "password"}
+            className="w-full p-2 rounded bg-gray-900 border border-gray-700 mb-4 text-white pr-10"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="absolute top-3 right-3 text-gray-400 hover:text-gray-200"
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
+        </div>
 
         <button
           type="submit"

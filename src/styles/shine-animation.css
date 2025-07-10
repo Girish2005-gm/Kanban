@@ -21,3 +21,36 @@
     background-position: -200% center;
   }
 }
+/* Unique shine for CTA button */
+.cta-glow-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.cta-glow-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: cta-glow-move 2s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes cta-glow-move {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 100%;
+  }
+}

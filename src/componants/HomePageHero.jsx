@@ -1,60 +1,97 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import "@/styles/shine-animation.css";
 import Logo from "../utils/logo";
+import { Github } from "lucide-react";
+
 export default function HomePageHero() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1e0032] to-[#3f0080] text-white flex flex-col justify-between">
-      {/* Header */}
-      <header className="flex justify-between items-center px-8 py-6">
+    <div className="min-h-screen flex flex-col bg-[#020617] text-white relative overflow-hidden">
+      {/* Background Grid with Radial Gradient */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "#020617",
+          backgroundImage: `
+            linear-gradient(to right, rgba(71,85,105,0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(71,85,105,0.15) 1px, transparent 1px),
+            radial-gradient(circle at 50% 60%, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.05) 40%, transparent 70%)
+          `,
+          backgroundSize: "40px 40px, 40px 40px, 100% 100%",
+        }}
+      />
 
-        <h1 className="text-3xl font-bold flex items-center gap-4">
-          <span className="text-purple-300"><Logo /> </span> KanbanFlow
-        </h1>
-        <div className="space-x-4">
-          <Link to="/login" className="bg-white  text-black px-4 py-2 rounded-md transition-all font-semibold">
-            Login
-          </Link>
-          <Link
-            to="/signup"
-            className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-md transition-all font-semibold"
-          >
-            Get Started
-          </Link>
-        </div>
-      </header>
+      {/* Content Wrapper */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        {/* Header */}
+        <header className="flex flex-col sm:flex-row justify-between items-center gap-4 px-6 py-6">
+          <h1 className="text-2xl sm:text-3xl font-bold flex items-center gap-3">
+            <span className="text-purple-300"><Logo /></span>
+            <span>KanbanFlow</span>
+          </h1>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/login"
+              className="bg-white text-black px-4 py-2 rounded-md text-sm font-semibold transition hover:opacity-90"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
+            >
+              Get Started
+            </Link>
+          </div>
+        </header>
 
-      {/* Hero Section */}
-      <main className="text-center px-4 md:px-0 flex-grow flex flex-col items-center justify-center">
-        <h2 className="text-4xl md:text-6xl font-bold mb-4">
-          Organize Your Work,
-          <br />
-          <span className="shine-text">
-            Visualize Success
-          </span>
-        </h2>
+        {/* Hero Section */}
+        <main className="flex flex-1 items-center justify-center px-4 text-center w-full">
+          <div className="w-full max-w-3xl">
+            {/* GitHub Button */}
+            <a
+              href="https://github.com/Girish2005-gm/Kanban"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-auto mb-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-900/90 text-white text-sm font-semibold shadow-lg backdrop-blur hover:bg-zinc-800/90 transition-all duration-300 group"
+            >
+              <Github className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+              <span className="inline-flex items-center gap-1">
+                Star on GitHub – Support This Project
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">👉</span>
+              </span>
+            </a>
 
-        <p className="text-lg md:text-xl text-gray-300 max-w-xl mb-8">
-          Streamline your workflow with our intuitive Kanban boards. Collaborate
-          with your team, track progress, and deliver projects faster than ever
-          before.
-        </p>
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight">
+              Organize Your Work,
+              <br />
+              <span className="shine-text">Visualize Success</span>
+            </h2>
 
-        <div className="flex flex-col md:flex-row gap-4 items-center">
-          <Link
-            to="/signup"
-            className="bg-purple-700 hover:bg-purple-600 px-6 py-2 rounded-md text-white text-lg font-semibold"
-          >
-            Start Free Trial
-          </Link>
-          <Link
-            to="/signup"
-            className="bg-white px-6 py-2 rounded-md text-black text-lg font-semibold"
-          >
-            Log in
-          </Link>
-        </div>
-      </main>
+            {/* Subtext */}
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-xl mx-auto mb-8">
+              Streamline your workflow with our intuitive Kanban boards. Collaborate
+              with your team, track progress, and deliver projects faster than ever before.
+            </p>
 
+            {/* Call to Action */}
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Link
+                to="/signup"
+                className="cta-glow-wrapper bg-purple-700 hover:bg-purple-600 px-6 py-2 rounded-md text-white text-base font-semibold relative z-10"
+              >
+                <span className="relative z-10">Start Free Trial</span>
+              </Link>
+              <Link
+                to="/login"
+                className="bg-white px-6 py-2 rounded-md text-black text-base font-semibold transition hover:opacity-90"
+              >
+                Log in
+              </Link>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
