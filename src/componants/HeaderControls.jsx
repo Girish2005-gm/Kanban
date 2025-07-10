@@ -1,4 +1,4 @@
-import Logo from "../utils/logo";
+import Logo from "../utils/Logo";
 export default function HeaderControls({
     searchQuery,
     tagFilter,
