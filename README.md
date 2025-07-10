@@ -19,7 +19,6 @@ KanbanFlow is a modern, responsive task management application built with React.
 * 🔍 Filter and Search tasks by name or tag
 * 📱 Fully Responsive UI
 * 🔔 Toast Notifications
-* 🌙 Dark Mode ready (optional enhancement)
 
 ---
 
