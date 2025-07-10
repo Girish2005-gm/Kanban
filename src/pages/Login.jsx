@@ -4,7 +4,7 @@ import { auth } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { ArrowLeft, Eye, EyeOff } from "lucide-react";
-import Logo from "../utils/logo";
+import Logo from "../utils/Logo";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
