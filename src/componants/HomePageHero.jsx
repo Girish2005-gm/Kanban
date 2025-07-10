@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "@/styles/shine-animation.css";
-import Logo from "../utils/logo";
+import Logo from "../utils/Logo";
 import { Github } from "lucide-react";
 
 export default function HomePageHero() {
