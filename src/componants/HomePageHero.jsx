@@ -1,9 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "@/styles/shine-animation.css";
 import Logo from "../utils/Logo";
 import { Github } from "lucide-react";
-
+import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 export default function HomePageHero() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      toast.success("Logged out");
+      navigate("/");
+    } catch (err) {
+      toast.error("Logout failed");
+      console.error("Logout failed", err);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#020617] text-white relative overflow-hidden">
       {/* Background Grid with Radial Gradient */}
@@ -29,18 +44,37 @@ export default function HomePageHero() {
             <span>KanbanFlow</span>
           </h1>
           <div className="flex flex-wrap gap-3">
-            <Link
-              to="/login"
-              className="bg-white text-black px-4 py-2 rounded-md text-sm font-semibold transition hover:opacity-90"
-            >
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
-            >
-              Get Started
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  to="/dashboard"
+                  className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
+                >
+                  Dashboard
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="bg-white text-black px-4 py-2 rounded-md text-sm font-semibold transition hover:opacity-90"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-semibold transition"
+                >
+                  Get Started
+                </Link>
+              </>
+            )}
           </div>
         </header>
 
@@ -52,10 +86,10 @@ export default function HomePageHero() {
               href="https://github.com/Girish2005-gm/Kanban"
               target="_blank"
               rel="noopener noreferrer"
-              className="mx-auto mb-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-900/90 text-white text-sm font-semibold shadow-lg backdrop-blur hover:bg-zinc-800/90 transition-all duration-300 group"
+              className="cta-sparkle mx-auto mb-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-900/90 text-white text-sm font-semibold shadow-lg backdrop-blur hover:bg-zinc-800/90 transition-all duration-300 group"
             >
-              <Github className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-              <span className="inline-flex items-center gap-1">
+              <Github className="w-4 h-4 group-hover:scale-110 transition-transform duration-300 relative z-10" />
+              <span className="inline-flex items-center gap-1 relative z-10">
                 Star on GitHub – Support This Project
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">👉</span>
               </span>
@@ -75,20 +109,22 @@ export default function HomePageHero() {
             </p>
 
             {/* Call to Action */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <Link
-                to="/signup"
-                className="cta-glow-wrapper bg-purple-700 hover:bg-purple-600 px-6 py-2 rounded-md text-white text-base font-semibold relative z-10"
-              >
-                <span className="relative z-10">Start Free Trial</span>
-              </Link>
-              <Link
-                to="/login"
-                className="bg-white px-6 py-2 rounded-md text-black text-base font-semibold transition hover:opacity-90"
-              >
-                Log in
-              </Link>
-            </div>
+            {!user && (
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <Link
+                  to="/signup"
+                  className="cta-glow-wrapper bg-purple-700 hover:bg-purple-600 px-6 py-2 rounded-md text-white text-base font-semibold relative z-10"
+                >
+                  <span className="relative z-10">Start Free Trial</span>
+                </Link>
+                <Link
+                  to="/login"
+                  className="bg-white px-6 py-2 rounded-md text-black text-base font-semibold transition hover:opacity-90"
+                >
+                  Log in
+                </Link>
+              </div>
+            )}
           </div>
         </main>
       </div>

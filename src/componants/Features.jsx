@@ -53,7 +53,7 @@ export default function Features() {
                 </div>
                 <h3 className="text-xl font-semibold text-white pt-4">{feature.title}</h3>
                 <p className="text-md text-purple-200">{feature.description}</p>
-                <ul className="text-base space-y-2 text-green-300 mt-2">
+                <ul className="text-base space-y-2 text-purple-200 mt-2">
                   {feature.bullets.map((point, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-green-400" />
