@@ -52,11 +52,15 @@ kanbanflow/
 
 ## 📸 Screenshots
 
-<img width="2499" height="1223" alt="image" src="https://github.com/user-attachments/assets/5776952c-c1ed-4900-8014-ebd90873869b" />
-<img width="2535" height="1269" alt="image" src="https://github.com/user-attachments/assets/3806d5d9-c1ef-4fd1-91cd-40e396fa6529" />
-<img width="2524" height="1236" alt="image" src="https://github.com/user-attachments/assets/728afbfd-90be-4551-83c1-8d0d29f353cb" />
-<img width="2545" height="1279" alt="image" src="https://github.com/user-attachments/assets/b03af58e-8a80-4dca-b964-636da4677381" />
-<img width="2549" height="1245" alt="image" src="https://github.com/user-attachments/assets/f5a682cd-3166-43e5-9413-b26f1415ad26" />
+<img width="2489" height="1180" alt="image" src="https://github.com/user-attachments/assets/fa5b5e98-c16a-4689-b867-82c037714646" />
+<img width="2455" height="1172" alt="image" src="https://github.com/user-attachments/assets/150b0bf9-d99f-4717-8aa5-a6a7be283007" />
+<img width="2474" height="1112" alt="image" src="https://github.com/user-attachments/assets/cf9c3f4a-a570-4b01-9650-826b1cc637e1" />
+<img width="2518" height="938" alt="image" src="https://github.com/user-attachments/assets/1a774b78-e040-4ac3-9aab-948eb2f96144" />
+<img width="2541" height="1196" alt="image" src="https://github.com/user-attachments/assets/bd481dbb-7f2c-4f56-9137-e0f9acef3bcc" />
+<img width="2556" height="1185" alt="image" src="https://github.com/user-attachments/assets/245ef9ff-06ea-4e56-a3c2-2261dc80a274" />
+<img width="2537" height="1233" alt="image" src="https://github.com/user-attachments/assets/4295c7c9-3b97-4d16-80ef-b136a36ebe8c" />
+<img width="2384" height="1016" alt="image" src="https://github.com/user-attachments/assets/f6bb5b51-2179-4395-8f8d-ad23671ddc56" />
+<img width="2501" height="1133" alt="image" src="https://github.com/user-attachments/assets/d96b1fae-9747-4c04-8582-4c1db1b8b514" />
 
 ---
 
